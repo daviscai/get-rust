@@ -312,6 +312,7 @@ fn main() {
 }
 */
 
+/*
 /// 将给定的数字加一
 ///
 /// # Examples
@@ -323,4 +324,126 @@ fn main() {
 /// ```
 pub fn add_one(x: i32) -> i32 {
     x + 1
+}
+*/
+
+/*
+fn main() {
+    // do something
+
+    another_function();
+}
+
+fn another_function() {
+    // do something
+}
+*/
+
+/*
+fn main() {
+    let x = 6;
+    
+    get_number(x);
+}
+
+fn get_number(num:f32) {
+    println!("num is {}", num);
+}
+*/
+
+/*
+fn main() {
+    let tup:(i32, char, f32) = (1, 'a', 9.9);
+    get_number(tup);
+}
+
+fn get_number(p:(i32,char,f32)) {
+    println!("p is {}", p.0);
+}
+*/
+/*
+fn main() {
+    let x = 10;
+    let y = get_number(x);
+    println!("y is {}", y);
+}
+
+fn get_number(num:i32) -> i32 {
+    num
+}
+*/
+
+/*
+fn main() {
+    let y = |num: i32|{
+        num + 1
+    };
+}
+*/
+/*
+fn main() {
+    let y = |num: i32|{  //定义了一个闭包，只有一个参数的匿名函数
+        num + 1
+    };  // 语句不要忘记了分号
+
+    println!("y is {}", y);
+}
+*/
+
+/*
+fn main() {
+    let y = |num: i32|{  //定义了一个闭包，只有一个参数的匿名函数
+        num + 1
+    };  // 语句不要忘记了分号
+
+    println!("y is {}", y(5));
+}
+*/
+
+/*
+fn main() {
+    let x = 10;
+
+    let y = |num| num + x ;
+    
+    println!("new num is {}", y(x));
+}
+*/
+/*
+fn main() {
+    let x = 10;
+
+    fn y(num:i32) -> i32{
+        num + x 
+    }
+    
+    println!("new num is {}", y(x));
+}
+*/
+
+/*
+fn main() {
+    let x = 10;
+    let y = move |num: i32|{  // 把 x 变量移动到闭包里
+        num + x 
+    } ; 
+    println!("x is {}", x);
+}
+*/
+/*
+fn main() {
+    let x = vec![1,2,3];
+    let y = |num|{ 
+        num == x 
+    } ; 
+    println!("x is {:?}", y(x) );
+}
+*/
+
+fn main() {
+    let x = vec![1,2,3];
+    let y = |num|{ 
+        num == &x 
+    } ; 
+    println!("x is {:?}", y(&x) );
 }
