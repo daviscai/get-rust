@@ -439,11 +439,151 @@ fn main() {
     println!("x is {:?}", y(x) );
 }
 */
-
+/*
 fn main() {
     let x = vec![1,2,3];
     let y = |num|{ 
         num == &x 
     } ; 
     println!("x is {:?}", y(&x) );
+}
+*/
+/*
+fn main() {
+    let x = 10; // x 是 10的所有者，拥有10的所有权
+    let y = x;  // y 是 10的所有者，由于x是整型变量，数据存放在栈上，把10拷贝了一份给了y ，x 依然存在
+    println!("x is {}", x);
+
+    let s = String::from("hello"); // s 是 "hello" 的所有者
+    let k = s;  // k 是 "hello" 的所有者，由于s是字符串类型，存放在堆上，把数据转移给了k，同时 s 销毁
+    //println!("s is {}", s);
+    println!("k is {}", k);
+}
+*/
+
+/*
+fn main() {
+    let x = 10 ;
+
+    {
+        let y = 9.9;
+    }
+    println!("y is {}", y);
+}
+*/
+
+/*
+fn main() {
+    let name = String::from("davis");
+
+    set_name(name);
+    println!("name = {}", name); // name 作为参数传递给了函数 `set_name`，同时所有权也移交给了函数的形参，这里 name 已经不存在了，会报编译错误，跟其他语言完全不一样
+}
+
+fn set_name(name:String) {
+    println!("name = {}", name);
+}
+*/
+/*
+fn main() {
+    let s1 = String::from("hello");
+    let s2 = s1.clone(); // 把 s1 的数据克隆一份给了 s2 , s1 依然存在
+
+    println!("s1 is {}", s1);
+    println!("s2 is {}", s2);
+}
+*/
+/*
+fn main() {
+    let name = String::from("davis");
+
+    set_name(&name);
+    println!("name = {}", name); // 实参是变量的引用，并不是值的所有权，name依然存在
+}
+fn set_name(name: &String) {
+    println!("name = {}", name);
+}
+*/
+/*
+fn main() {
+    let name = String::from("davis");
+
+    let new_name = set_name(&name);           // &name 指向 name 的引用，并不拥有值的所有权 
+    // println!("name = {}", new_name); 
+}
+fn set_name(name: &String) {   // name 是对 String 的引用
+    name.push_str(" cai")
+}
+*/
+/*
+fn main() {
+    let mut name = String::from("davis");  // 变量要声明为可变
+
+    set_name(&mut name);    // 引用也要传递 可变引用
+}
+fn set_name(name: &mut String){   // 参数声明为 可变引用
+    name.push_str(",cai");
+}
+*/
+/*
+fn main(){
+    let mut s = String::from("hello");
+
+    let r1 = &mut s;
+    let r2 = &mut s;
+
+    println!("{}, {}", r1, r2);
+}
+*/
+/*
+fn main(){
+    let mut s = String::from("hello");
+
+    let r1 = &s;
+    let r2 = &s;
+
+    println!("{}, {}", r1, r2);
+}
+*/
+/*
+fn main(){
+    let mut s = String::from("hello");
+
+    let r1 = &s;
+    let r2 = &mut s;
+
+    println!("{}, {}", r1, r2);
+}
+*/
+/*
+fn main() {
+    let s = String::from("hello");
+    let s2 = &s[0..3]; // 从0开始，取3个元素
+    println!("s2 is {}", s2);
+}
+*/
+/*
+fn main() {
+    let s = String::from("hello");
+    let s2 = &s[0..=3]; // 从下标0开始，到下标等于3为止
+    println!("s2 is {}", s2);
+}
+*/
+/*
+fn main() {
+    let s = String::from("hello");
+    let s2 = &s[..=3]; // 从下标0开始，省略开头的值， 到下标等于3为止
+    let s3 = &s[2..];  // 一直到结尾，省略结尾的值
+    let s4 = &s[..];  // 取整个字符串
+
+    println!("s2 is {}", s2);
+    println!("s3 is {}", s3);
+    println!("s4 is {}", s4);
+}
+*/
+
+fn main() {
+    let arr = [1,2,3,4,5,6];
+    let sub_arr = &arr[1..3];
+    println!("sub_arr is {:?}", sub_arr);
 }
