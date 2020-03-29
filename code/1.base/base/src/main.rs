@@ -581,9 +581,753 @@ fn main() {
     println!("s4 is {}", s4);
 }
 */
-
+/*
 fn main() {
     let arr = [1,2,3,4,5,6];
     let sub_arr = &arr[1..3];
     println!("sub_arr is {:?}", sub_arr);
+}
+*/
+
+/*
+#[derive(Debug)]
+struct User {
+    name: String,
+    age: i32,
+    active: bool
+}
+
+fn main() {
+    let user = User {
+        name: String::from("davis"),
+        age: 20,
+        active: true
+    };
+    println!("user is {:#?}", user);
+}
+*/
+/*
+struct User {
+    name: String,
+    age: i32,
+    active: bool
+}
+
+fn main() {
+    let user = User {
+        name: String::from("davis"),
+        age: 20,
+        active: true
+    }; // 别忘了分号
+
+    println!("user is {}", user.name); // 访问结构体里的字段
+}
+*/
+
+/*
+struct User {
+    name: String,
+    age: i32,
+    active: bool
+}
+
+fn main() {
+    let mut user = User {
+        name: String::from("davis"),
+        age: 20,
+        active: true
+    }; // 别忘了分号
+
+    user.name = String::from("tina");
+    println!("user is {}", user.name); // 访问结构体里的字段
+}
+*/
+/*
+struct User {
+    name: String,
+    age: i32,
+    active: bool
+}
+
+fn main() {
+    let user = build_user(String::from("davis"));
+     println!("user is {}", user.name);
+}
+
+fn build_user(name: String) -> User{
+    User {
+        name,
+        age: 25,
+        active: true
+    }
+}
+*/
+/*
+#[derive(Debug)]
+struct User {
+    name: String,
+    age: i32,
+    active: bool
+}
+
+fn main() {
+
+    let user1 = User {
+        name: String::from("davis"),
+        age: 26,
+        active: true
+    };
+
+    let user2 = User {
+        age: 30,
+        ..user1  // .. 语法指定了剩余未显式设置值的字段应有与给定实例对应字段相同的值。
+    };
+
+    println!(" user2 is {:#?}", user2 );
+}
+*/
+/*
+#[derive(Debug)]
+struct Point (i32, i32, i32);
+
+fn main() {
+    let p = Point(2,3,4);
+    println!("p is {:?}", p);
+}
+*/
+
+/*
+struct User {
+    name: String,
+    age: i32,
+    active: bool
+}
+
+// 定义结构体方法
+impl User {
+    fn set_name(&mut self, name: String) {  
+        self.name = name;
+    }
+
+    fn get_name(&self) -> &String{
+        &self.name
+    }
+}
+
+fn main() {
+    let mut user = User{ name: String::from("davis"), age: 24, active: true } ;
+    user.set_name(String::from("tina"));
+    let name = user.get_name();
+    println!("{}",name);
+}
+*/
+
+/*
+#[derive(Debug)]
+struct User {
+    name: String,
+    age: i32
+}
+
+impl User {
+    fn build(name:String, age:i32) -> User {
+        User{name, age}
+    }
+}
+
+fn main() {
+    let user = User::build(String::from("davis"), 32);
+    println!("{:#?}", user);
+}
+*/
+/*
+#[derive(Debug)]
+enum IP {
+    v4,
+    v6
+}
+
+fn main() {
+    let v4 = IP::v4;
+    let v6 = IP::v6;
+
+    println!("{:#?}", v4);
+    println!("{:#?}", v6);
+}
+*/
+/*
+#[derive(Debug)]
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+fn main() {
+    let m1 = Message::Move{x:30, y:2};
+    let m2 = Message::Write(String::from("hello"));
+    let m3 = Message::ChangeColor(220,190,100);
+
+    println!("{:?}", m1);
+    println!("{:?}", m2);
+    println!("{:?}", m3);
+}
+*/
+
+/*
+// 创建一个 `enum`（枚举）来对 web 事件分类。注意变量名和类型共同指定了 `enum`
+// 取值的种类：`PageLoad` 不等于 `PageUnload`，`KeyPress(char)` 不等于
+// `Paste(String)`。各个取值不同，互相独立。
+enum WebEvent {
+    // 一个 `enum` 可以是单元结构体（称为 `unit-like` 或 `unit`），
+    PageLoad,
+    PageUnload,
+    // 或者一个元组结构体，
+    KeyPress(char),
+    Paste(String),
+    // 或者一个普通的结构体。
+    Click { x: i64, y: i64 }
+}
+
+// 此函数将一个 `WebEvent` enum 作为参数，无返回值。
+fn inspect(event: WebEvent) {
+    match event {
+        WebEvent::PageLoad => println!("page loaded"),
+        WebEvent::PageUnload => println!("page unloaded"),
+        // 从 `enum` 里解构出 `c`。
+        WebEvent::KeyPress(c) => println!("pressed '{}'.", c),
+        WebEvent::Paste(s) => println!("pasted \"{}\".", s),
+        // 把 `Click` 解构给 `x` and `y`。
+        WebEvent::Click { x, y } => {
+            println!("clicked at x={}, y={}.", x, y);
+        },
+    }
+}
+
+fn main() {
+    let pressed = WebEvent::KeyPress('x');
+    // `to_owned()` 从一个字符串切片中创建一个具有所有权的 `String`。
+    let pasted  = WebEvent::Paste("my text".to_owned());
+    let click   = WebEvent::Click { x: 20, y: 80 };
+    let load    = WebEvent::PageLoad;
+    let unload  = WebEvent::PageUnload;
+
+    inspect(pressed);
+    inspect(pasted);
+    inspect(click);
+    inspect(load);
+    inspect(unload);
+}
+*/
+
+/*
+enum VeryVerboseEnumOfThingsToDoWithNumbers {
+    Add,
+    Subtract,
+}
+
+// Creates a type alias
+type Operations = VeryVerboseEnumOfThingsToDoWithNumbers; // 声明类型别名
+
+fn main() {
+    // We can refer to each variant via its alias, not its long and inconvenient
+    // name.
+    let x = Operations::Add; 
+}
+*/
+
+/*
+enum Status {
+    Rich,
+    Poor,
+}
+
+enum Work {
+    Civilian,
+    Soldier,
+}
+
+fn main() {
+    // 显式地 `use` 各个名称使他们直接可用，而不需要指定它们来自 `Status`。
+    use Status::{Poor, Rich};
+    // 自动地 `use` `Work` 内部的各个名称。
+    use Work::*;
+
+    // `Poor` 等价于 `Status::Poor`。
+    let status = Poor;
+    // `Civilian` 等价于 `Work::Civilian`。
+    let work = Civilian;
+
+    match status {
+        // 注意这里没有用完整路径，因为上面显式地使用了 `use`。
+        Rich => println!("The rich have lots of money!"),
+        Poor => println!("The poor have no money..."),
+    }
+
+    match work {
+        // 再次注意到没有用完整路径。
+        Civilian => println!("Civilians work!"),
+        Soldier  => println!("Soldiers fight!"),
+    }
+}
+*/
+
+/*
+enum Message {
+    Write(String),
+    Move { x:i32, y: i32}
+}
+
+impl Message {
+    fn call(&self) {
+        println!("do something");
+    }
+}
+
+fn main() {
+    let m = Message::Write(String::from("hello"));
+    m.call();
+}
+*/
+
+/*
+enum IP {
+    V4,
+    V6
+}
+
+fn route(ip_type: IP) -> i32 { 
+    match ip_type {
+        IP::V4 =>{ 
+            println!("this is ipv4"); 
+            return 1; 
+        }
+        IP::V6 =>{ 
+            println!("this is ipv6"); 
+            2
+        }
+    }
+}
+
+fn main() {
+    let s = route(IP::V4);
+    println!("s is {}", s);
+}
+*/
+
+/*
+fn plus_one(x: Option<i32>) -> i32 {
+    match x {
+        Some(k) => k + 1,
+        None => 0
+    }
+}
+
+fn main() {
+    let x = plus_one(Some(5));
+    let y = plus_one(None);
+    println!("x is {}", x);
+    println!("y is {}", y);
+}
+*/
+
+/*
+fn plus_one(x: Option<i32>) -> i32 {
+    match x {
+        Some(k) => k + 1,
+        // None => 0  去掉 None 成员的分支
+    }
+}
+
+fn main() {
+    let x = plus_one(Some(5));
+    let y = plus_one(None);
+    println!("x is {}", x);
+    println!("y is {}", y);
+}
+*/
+/*
+fn plus_one(x: Option<i32>) -> i32 {
+    /*
+    match x {
+        Some(k) => k + 1,
+        None => 0
+    }
+    */
+    if let Some(k) = x { //  要模式在前，实参在后，不能这样写： x = Some(k) 
+        k + 1
+    } else {
+        0
+    }
+}
+
+fn main() {
+    let x = plus_one(Some(5));
+    let y = plus_one(None);
+    println!("x is {}", x);
+    println!("y is {}", y);
+}
+*/
+
+/*
+fn make_pair<T,U>(a: T, b:U) -> (T,U) {
+    (a,b)
+}
+  
+fn main()
+{
+  let couple1 = make_pair("man", "female");
+  println!("couple1 = {:?}", couple1);
+
+  let couple2 = make_pair(99i32, 109f64);
+  println!("couple2 = {:?}", couple2);
+}
+*/
+/*
+struct Point<T, U> {
+    x: T, 
+    y: U,
+}
+
+fn main() {
+    let both_integer = Point { x: 5, y: 10 };
+    let both_float = Point { x: 1.0, y: 4.0 };
+    let integer_and_float = Point { x: 5, y: 4.0 };
+}
+*/
+/*
+enum Option<T> {
+    Some(T),
+    None
+}
+
+enum Result<T, E> {
+    Ok(T),
+    Err(E)
+} 
+
+fn main() {
+
+}
+*/
+
+/*
+struct Point<T> {
+    x: T,
+    y: T
+}
+
+impl Point<i32> {
+    fn plus(&self) -> i32 {
+        self.x + self.y
+    }
+}
+
+fn main() {
+    let p = Point{x:10, y:20};
+    let area = p.plus();
+    println!("area is {}", area);
+}
+*/
+
+/*
+#[derive(Debug)]
+struct Point<T> {
+    x: T,
+    y: T
+}
+
+impl Point<i32> {
+    fn plus(&self) -> i32 {
+        self.x + self.y
+    }
+
+    fn build(&self) -> Point<i32> {
+        Point{ x: self.x, y: self.y }
+    }
+}
+
+impl<T> Point<T> {
+    fn new(&self) -> &T {
+        &self.x 
+    }
+}
+
+fn main() {
+    let p = Point{x:10, y:20};
+    let area = p.plus();
+    println!("area is {}", area);
+
+    let p1 = p.build();
+    println!("{:?}", p1);
+
+    let x = p.new();
+    println!("{}", x);
+
+}
+*/
+
+/*
+trait Car {
+
+    fn lanuch() {           // 声明默认的方法，并实现
+        println!("car start lanuch");
+    }
+
+    fn desc(&self) ;        // 声明接口方法，不实现
+
+    fn query_miles(&self) -> i32 ;  // 声明接口方法和返回值，不实现
+}
+
+struct MVP {
+    name: String,
+    color: String,
+    power: i32,
+    miles: i32
+}
+ 
+impl Car for MVP {
+    fn desc(&self) {
+        println!("{} , color is {}, and power is {}", self.name, self.color, self.power);
+    }
+
+    fn query_miles(&self) -> i32 {
+        self.miles
+    }
+}
+
+fn main() {
+    MVP::lanuch();  // 调用默认接口方法
+    let m = MVP{name: String::from("mvp car"), color: String::from("red"), power: 320, miles: 10000};
+    m.desc();
+    let mile = m.query_miles();
+    println!("miles is {}", mile);
+}
+*/
+
+/*
+trait Car {
+
+    fn lanuch() {           // 声明默认的方法，并实现
+        println!("car start lanuch");
+    }
+
+    fn desc(&self) ;        // 声明接口方法，不实现
+
+    fn query_miles(&self) -> i32 ;  // 声明接口方法和返回值，不实现
+
+    fn add_oil(&self, num:i32);
+
+}
+
+struct MVP {
+    name: String,
+    color: String,
+    power: i32,
+    miles: i32
+}
+ 
+impl Car for MVP {
+    fn desc(&self) {
+        println!("{} , color is {}, and power is {}", self.name, self.color, self.power);
+    }
+
+    fn query_miles(&self) -> i32 {
+        self.miles
+    }
+
+    fn add_oil(&self, num: i32) {
+        println!("add oil is {}", num);
+    }
+}
+
+fn main() {
+    MVP::lanuch();  // 调用默认接口方法
+    let m = MVP{name: String::from("mvp car"), color: String::from("red"), power: 320, miles: 10000};
+    m.desc();
+    let mile = m.query_miles();
+    println!("miles is {}", mile);
+
+    add_oil(m);
+    //add_oil2(m);
+   
+}
+
+// trait 作为函数参数
+fn add_oil(car: impl Car) {
+    car.add_oil(100);
+}
+
+// trait bounds
+fn add_oil2<T: Car>(car: T) {
+    car.add_oil(200);
+}
+*/
+
+/*
+fn main() {
+    let mut v = vec![2,3,4,5,6];
+    v.push(9); // 追加新元素到最后
+
+    let b = &v[0];  // 读取元素
+    let b2 = v.get(3);  // 读取元素，返回 Option 枚举类型
+    println!("b is {}", b);
+    println!("b2 is {:?}", b2);
+
+    v.pop();  // 移除最后一个元素
+
+    // 遍历 Vector 
+    for ele in &v {
+        println!("value is {} ",ele);
+    }
+}
+*/
+
+/*
+use std::collections::HashMap;
+fn main() {
+    // 创建一个 hashmap 
+    let mut hm = HashMap::new();
+
+    // 插入元素，分别为 key 和 value 
+    hm.insert("blue", 100);
+
+    // 根据 key 读取 元素，返回 Option 枚举类型
+    let b = hm.get("blue");
+    println!("{:?}", b);
+
+    // 如果不存在指定 key，就插入值 
+    hm.entry("yel").or_insert(50);
+
+    // 遍历 hashmap 
+    for (key, val) in &hm {
+        println!("key={}, val={}" , key, val);
+    }
+}
+*/
+
+/*
+use std::fs::File;
+fn main() {
+    let f = File::open("t.txt"); // f 是 Result 枚举类型
+
+    let f = match f {
+        Ok(file) => file,
+        Err(error) => {
+            panic!("file not found error : {:?}", error); // panic! 输出错误信息并停止程序执行
+        },
+    };
+}
+*/
+
+/*
+use std::fs::File;
+use std::io::ErrorKind;
+fn main() {
+    let f = File::open("t.txt"); // f 是 Result 枚举类型
+
+    let f = match f {
+        Ok(file) => file,
+        Err(error) =>  match error.kind() {  // 匹配错误
+            ErrorKind::NotFound => match File::create("t.txt"){  // 创建文件
+                Ok(new_file) => new_file,
+                Err(e) => panic!("can not create file"),
+            },
+            other_error => panic!("other error"),
+        },
+    };
+    println!("{:?}", f);
+}
+*/
+
+/*
+use std::fs::File;
+
+fn main() {
+    let f = File::open("t1.txt").unwrap();
+    //let f = File::open("t1.txt").expect("file not found");
+    println!("{:?}", f);
+}
+*/
+
+/*
+use std::io;
+use std::io::Read;
+use std::fs::File;
+
+fn main() {
+    let f = open_file();
+    println!("{:?}", f);
+}
+
+fn open_file() -> Result<String, io::Error> {
+    let f = File::open("t1.txt");
+
+    let mut f = match f {
+        Ok(file) => file,
+        Err(err) => return Err(err),
+    };
+
+    let mut s = String::new();
+
+    match f.read_to_string(&mut s) {
+        Ok(_) => Ok(s),
+        Err(e) => Err(e),
+    }
+}
+*/
+
+/*
+use std::io;
+use std::io::Read;
+use std::fs::File;
+
+fn main() {
+    let f = open_file();
+    println!("{:?}", f);
+}
+
+fn open_file() -> Result<String, io::Error> {
+    let mut f = File::open("t1.txt")? ;
+    let mut s = String::new();
+    f.read_to_string(&mut s)? ;
+    Ok(s)
+}
+*/
+
+/*
+use std::io;
+use std::io::Read;
+use std::fs::File;
+
+fn main() {
+    let f = open_file();
+    println!("{:?}", f);
+}
+
+fn open_file() -> Result<String, io::Error> {
+    let mut s = String::new();
+    File::open("t1.txt") ?.read_to_string(&mut s) ?  ;  // 返回错误的链式写法 ?. 
+    Ok(s)
+}
+*/
+
+
+#[cfg(test)]
+mod test {
+
+    #[test]  // 表明这是一个测试函数
+    fn it_eq(){
+        assert_eq!(4,4);  // 断言
+    } 
+
+    #[test]
+    #[should_panic] // 表明这个测试函数会出现 panic 报错 ，出现了则测试通过，否则测试失败
+    fn another() {
+        panic!("Make this test fail");
+    }
+}
+
+fn main() {
+
 }

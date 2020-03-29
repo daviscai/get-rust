@@ -11,7 +11,7 @@
 &emsp;&emsp;&emsp;&emsp; 1.1.4 [高级数据类型](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/1.base/4.高级数据类型.md)  
 &emsp;&emsp;&emsp;&emsp; 1.1.5 [错误处理](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/1.base/5.错误处理.md)   
 &emsp;&emsp;&emsp;&emsp; 1.1.6 [测试](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/1.base/6.测试.md)   
-&emsp;&emsp;&emsp;&emsp; 1.1.7 [Cargo和包管理](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/1.base/7.Cargo和包管理.md) 
+
 
 ### &emsp; 1.2、Rust 高级
 
