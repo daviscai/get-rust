@@ -1312,7 +1312,7 @@ fn open_file() -> Result<String, io::Error> {
 }
 */
 
-
+/*
 #[cfg(test)]
 mod test {
 
@@ -1331,3 +1331,430 @@ mod test {
 fn main() {
 
 }
+*/
+
+/*
+fn main() {
+    let b = Box::new(50);
+    println!("b is {}", b);
+
+    let b = Box::new("this is a box");
+    println!("b is {}", b);
+}
+*/
+/*
+fn main() {
+    let x = 10;
+    let y = &x;
+
+    assert_eq!(10, x);
+    assert_eq!(10, *y);
+}
+*/
+/*
+fn main() {
+    let x = 10;
+    let y = Box::new(x);
+
+    assert_eq!(10, x);
+    assert_eq!(10, *y);  // 使用 *y 来追踪引用所指向的值（也就是 解引用）
+}
+*/
+
+/*
+use core::ops::Deref;
+struct MyBox<T>(T);
+
+impl<T> MyBox<T> {
+    fn new(x: T) -> MyBox<T> {
+        MyBox(x)
+    }
+}
+
+impl<T> Deref for MyBox<T> {
+    type Target = T; //用于此 trait 的关联类型， 关联类型是一个稍有不同的定义泛型参数的方式
+
+    fn deref(&self) -> &T {  // 实现 Deref 的 deref方法， 就可以实现自定义智能指针，像使用普通引用一样就行解引用（取值）
+        &self.0
+    }
+}
+
+fn main() {
+    let x = 20;
+    let y = MyBox::new(x);
+
+    println!("y is {}", *y);
+}
+*/
+
+/*
+use core::ops::Deref;
+struct MyBox<T>(T);  // 声明一个元组结构体
+
+impl<T> MyBox<T> {
+    fn new(x: T) -> MyBox<T> {
+        MyBox(x)
+    }
+}
+
+impl<T> Deref for MyBox<T> {
+    type Target = T;         //用于此 trait 的关联类型， 关联类型是一个稍有不同的定义泛型参数的方式
+
+    fn deref(&self) -> &T {  // 实现 Deref 的 deref方法， 就可以实现自定义智能指针，像使用普通引用一样就行解引用（取值）
+        &self.0
+    }
+}
+
+// 实现 Drop trait 的 drop 方法，可在离开作用域时候做一些清理工作，无需也不能显式调用 drop 方法
+impl<T> Drop for MyBox<T> {
+
+    fn drop(&mut self) {
+        println!("MyBox drop data here");
+    }
+
+}
+
+fn main() {
+    let x = 20;
+    let y = MyBox::new(x);
+
+    println!("y is {}", *y);
+    println!("11111");
+}
+*/
+
+/*
+use std::sync::Arc;
+use std::thread;
+
+fn main() {
+    let numbers: Vec<_> = (0..100u32).collect();
+    let shared_numbers = Arc::new(numbers);
+
+    for _ in 0..10 {
+        let child_numbers = shared_numbers.clone();
+
+        thread::spawn(move || {
+            let local_numbers = &child_numbers[..];
+            // Work with the local numbers
+        });
+    }
+}*/
+/*
+pub struct Score {
+    list: Vec<i32>,
+    average: f64
+}
+
+impl Score {
+    pub fn add(&mut self, value:i32) {
+        self.list.push(value);
+        self.update_average();
+    }
+
+    pub fn average(&self) -> f64 {
+        self.average
+    }
+
+    fn update_average(&mut self) {
+        let total: i32 = self.list.iter().sum();
+        self.average = total as f64 / self.list.len() as f64;
+    }
+}
+
+fn main() {
+    let mut s = Score{list:vec![], average:0.0};
+    s.add(20);
+    let avg = s.average();
+    println!("avg is {}", avg);
+
+    s.add(100);
+    let avg = s.average();
+    println!("avg is {}", avg);
+
+    s.update_average();
+    println!("list is {:?}", s.list);
+    s.list.push(30);
+    println!("list is {:?}", s.list);
+    s.average = 10.0;
+    println!("avg is {}", s.average);
+}
+*/
+/*
+pub trait Draw {
+    fn draw(&self);
+}
+
+pub struct Button {
+    height: i32,
+    width: i32,
+    text: String
+}
+
+impl Draw for Button {
+    fn draw(&self) {
+        println!("height is {}, width is {}, text is {}", self.height, self.width, self.text);
+    }
+}
+
+fn main() {
+    let button = Button{height: 100, width: 40, text: String::from("submit")};
+
+    button.draw();
+}
+*/
+
+/*
+trait Bird {
+    fn fly(&self);
+}
+  
+struct Duck{x:i32}
+struct Swan{x:i64}
+
+impl Bird for Duck {
+    fn fly(&self) { 
+        println!("duck duck {}", self.x); 
+    }
+}
+
+impl Bird for Swan {
+    fn fly(&self) { 
+        println!("swan swan {}", self.x);
+    }
+}
+
+// 通过泛型实现多态
+fn test<T: Bird>(arg: T) {
+    arg.fly();
+}
+
+fn test2(arg: Box<Bird>) {
+    arg.fly();
+}
+
+pub fn main(){   
+    test(Duck{x:10});
+    test(Swan{x:10});
+
+    test2( Box::new(Duck{x:10}));
+    test2( Box::new(Swan{x:10}));
+}
+*/
+/*
+use std::thread;
+use std::time::Duration;
+
+fn main() {
+    let thread = thread::spawn(|| {
+        for i in 1..10 {
+            println!("this is thread {}", i);
+            thread::sleep(Duration::from_millis(1));
+        }
+    });
+
+    for k in 1..5 {
+        println!("this is main {}", k);
+        thread::sleep(Duration::from_millis(1));
+    }
+}
+*/
+/*
+use std::thread;
+use std::time::Duration;
+
+fn main() {
+    let handler = thread::spawn(||{
+        for i in 1..10 {
+            println!("this is thread {}", i);
+            thread::sleep(Duration::from_millis(1));
+        }
+    });
+
+    for k in 1..5 {
+        println!("this is main {}", k);
+        thread::sleep(Duration::from_millis(1));
+    }
+
+    handler.join().unwrap();
+}
+*/
+
+/*
+use std::thread;
+
+fn main() {
+    let v = vec![2,4,5];
+    let thread = thread::spawn( move || {
+        println!("v is {:?}", v);
+    });
+}
+*/
+
+/*
+use std::thread;
+use std::sync::mpsc;
+
+fn main() {
+    let (tx, rx) = mpsc::channel();
+
+    thread::spawn(move || {
+        tx.send("hello").unwrap();
+    });
+
+    let msg = rx.try().unwrap();
+    println!("message is {}", msg);
+}
+*/
+
+/*
+use std::thread;
+use std::sync::mpsc;
+
+fn main() {
+    let (tx, rx) = mpsc::channel();
+
+    thread::spawn(move || {
+        tx.send("hello").unwrap();
+    });
+
+    let msg = rx.try_recv().unwrap();
+    println!("message is {}", msg);
+}
+*/
+
+/*
+use std::thread;
+use std::sync::mpsc;
+use std::time::Duration;
+
+fn main() {
+    let (tx, rx) = mpsc::channel();
+
+    thread::spawn(move || {
+        let vals = vec![
+            String::from("hi"),
+            String::from("from"),
+            String::from("the"),
+            String::from("thread"),
+        ];
+
+        for val in vals {
+            tx.send(val).unwrap();
+            thread::sleep(Duration::from_secs(1));
+        }
+    });
+
+    for received in rx { // 不再显式调用 rx.recv() 函数：而是将 rx 当作一个迭代器
+        println!("Got: {}", received);
+    }
+}
+*/
+/*
+use std::sync::Mutex;
+fn main() {
+    let m = Mutex::new(5);
+    {
+        let mut num = m.lock().unwrap();
+        *num = 10; // 重新赋值
+        println!("num is {}",num);
+    }
+    println!("m is {:?}",m);
+    
+}
+*/
+/*
+use std::sync::{Mutex, Arc};
+use std::thread;
+
+fn main() {
+    let counter = Arc::new(Mutex::new(0));
+    let mut handles = vec![];
+
+    for _ in 0..10 {
+        let counter = Arc::clone(&counter);
+        let handle = thread::spawn(move || {
+            let mut num = counter.lock().unwrap();
+
+            *num += 1;
+        });
+        handles.push(handle);
+    }
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+
+    println!("Result: {}", *counter.lock().unwrap());
+}
+*/
+/*
+fn main() {
+    let mut num = 10;
+    let p1 = &num as *const i32;
+    let p2 = &mut num as *mut i32;
+
+    //unsafe {
+        println!("p1 is {}", *p1);
+        println!("p2 is {}", *p2);
+    //}
+}
+*/
+
+/*
+unsafe fn dangerous() {
+    println!("it's dangerous");
+}
+
+fn main() {
+    unsafe {
+        dangerous();
+    }
+}
+*/
+/*
+fn dangerous() {
+    let mut num = 10;
+    let p1 = &num as *const i32;
+    let p2 = &mut num as *mut i32;
+
+    unsafe {
+        println!("p1 is {}", *p1);
+        println!("p2 is {}", *p2);
+    }
+}
+
+fn main() {
+    dangerous();
+}
+*/
+
+/*
+extern "C" {
+    fn abs(input: i32) -> i32;
+}
+
+fn main() {
+    unsafe {
+        println!("Absolute value of -3 according to C: {}", abs(-3));
+    }
+}
+*/
+
+/*
+static HELLO_WORLD: &str = "Hello, world!";
+
+fn main() {
+    println!("name is: {}", HELLO_WORLD);
+}
+*/
+/*
+static mut NUM:i32 = 0;
+
+fn main() {
+    unsafe {
+        NUM = NUM + 1;
+        println!("NUM is {}", NUM);
+    }
+}
+*/

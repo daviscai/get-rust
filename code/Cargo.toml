@@ -1,5 +1,5 @@
 [package]
-name = "base"
+name = "rust-base"
 version = "0.1.0"
 authors = ["caiwenxiong <caiwenxiong@baidu.com>"]
 edition = "2018"
