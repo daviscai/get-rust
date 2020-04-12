@@ -15,6 +15,14 @@
 
 ### &emsp; 1.2、Rust 高级
 
+&emsp;&emsp;&emsp;&emsp; 1.2.1 [生命周期](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/2.advance/1.生命周期.md)  
+&emsp;&emsp;&emsp;&emsp; 1.2.2 [智能指针](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/2.advance/2.智能指针.md)   
+&emsp;&emsp;&emsp;&emsp; 1.2.3 [面向对象](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/2.advance/3.面向对象.md)   
+&emsp;&emsp;&emsp;&emsp; 1.2.4 [并发编程](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/2.advance/4.并发编程.md)  
+&emsp;&emsp;&emsp;&emsp; 1.2.5 [不安全的rust](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/2.advance/5.不安全的rust.md)   
+&emsp;&emsp;&emsp;&emsp; 1.2.6 [FFI](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/2.advance/6.FFI.md)   
+
+
 ### &emsp; 1.3、Rust 异步
 
 ### &emsp; 1.4、Rust 多线程
