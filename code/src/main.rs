@@ -1758,3 +1758,49 @@ fn main() {
     }
 }
 */
+
+/*
+use futures::executor::block_on;
+
+async fn hello_world() {
+    println!("hello, world!");
+}
+
+fn main() {
+    let future = hello_world(); // Nothing is printed
+    block_on(future); // `future` is run and "hello, world!" is printed
+}
+*/
+
+/*
+use futures::executor::block_on;
+async fn learn_song(song:&String) {
+    println!("I am learn song {}", song);
+}
+
+async fn sing_song(song: &String) {
+    println!("song is {:?}", song);
+}
+
+async fn dance() {
+    println!("I am dancing");
+}
+
+async fn act() {
+    let song = String::from("love");
+    println!("111111");
+    learn_song(&song).await;
+    println!("222222");
+    sing_song(&song).await;
+    println!("333333");
+    dance().await;
+    println!("444444");
+}
+
+fn main() {
+    //block_on(act());
+    async{
+        act().await;
+    };
+}
+*/
