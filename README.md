@@ -5,12 +5,13 @@
 
 ### &emsp; 1.1、Rust 基础
 
-&emsp;&emsp;&emsp;&emsp; 1.1.1 [语言基础](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/1.base/1.语言基础.md)  
-&emsp;&emsp;&emsp;&emsp; 1.1.2 [函数和闭包](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/1.base/2.函数和闭包.md)   
-&emsp;&emsp;&emsp;&emsp; 1.1.3 [所有权](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/1.base/3.所有权.md)   
-&emsp;&emsp;&emsp;&emsp; 1.1.4 [高级数据类型](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/1.base/4.高级数据类型.md)  
-&emsp;&emsp;&emsp;&emsp; 1.1.5 [错误处理](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/1.base/5.错误处理.md)   
-&emsp;&emsp;&emsp;&emsp; 1.1.6 [测试](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/1.base/6.测试.md)   
+&emsp;&emsp;&emsp;&emsp; 1.1.1 [快速开始](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/1.base/1.快速开始.md)   
+&emsp;&emsp;&emsp;&emsp; 1.1.2 [语言基础](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/1.base/2.语言基础.md)  
+&emsp;&emsp;&emsp;&emsp; 1.1.3 [函数和闭包](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/1.base/3.函数和闭包.md)   
+&emsp;&emsp;&emsp;&emsp; 1.1.4 [所有权](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/1.base/4.所有权.md)   
+&emsp;&emsp;&emsp;&emsp; 1.1.5 [高级数据类型](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/1.base/5.高级数据类型.md)  
+&emsp;&emsp;&emsp;&emsp; 1.1.6 [错误处理](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/1.base/6.错误处理.md)   
+&emsp;&emsp;&emsp;&emsp; 1.1.7 [测试](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/1.base/7.测试.md)   
 
 
 ### &emsp; 1.2、Rust 高级
@@ -27,11 +28,11 @@
 
 &emsp;&emsp;&emsp;&emsp; 1.3.1 [异步编程](https://github.com/daviscai/get-rust/blob/master/1.rust-lang/3.async/1.异步编程.md) 
 
-### &emsp; 1.5、Rust 数据结构
+### &emsp; 1.4、Rust 数据结构
 
-### &emsp; 1.6、Rust 算法
+### &emsp; 1.5、Rust 算法
 
-### &emsp; 1.7、Rust 设计模式
+### &emsp; 1.6、Rust 设计模式
 
 ## 2、Rust 应用
 
