@@ -2,7 +2,8 @@
 从零开始学习 Rust-lang 编程语言，从新手到专家
 
 ## 技能全景图
-![image](https://github.com/daviscai/get-rust/assets/3873034/8737815e-06f7-407b-9fb8-21786d70f593)
+<img width="1120" alt="Rust-lang" src="https://github.com/daviscai/get-rust/assets/3873034/2ee76ba9-312d-4f87-a0a2-a5b450827a08">
+
 
 
 
