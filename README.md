@@ -1,8 +1,22 @@
 # get-rust
 从零开始学习 Rust-lang 编程语言，从新手到专家
 
+## 为什么要学习Rust? 
+- 高性能
+- 内存安全
+- 全能全栈的编程语言, 无论是嵌入式、APP、Web、Server、OS都可以胜任.
+- 最受欢迎的编程语言
+- 2023年美国薪酬前三的编程语言, https://www.devjobsscanner.com/blog/top-10-highest-paid-programming-languages/ 
+
+
 ## 技能全景图
 <img width="1120" alt="Rust-lang" src="https://github.com/daviscai/get-rust/assets/3873034/2ee76ba9-312d-4f87-a0a2-a5b450827a08">
+
+
+
+## 学习本次课程后会得到什么? 
+- 获得学习一门编程语言的最佳方法, 按照这个方法可以高效学习其他技能, 得到的不仅仅是会Rust编程
+- 入门计算机编程, 有能力把任何创意想法通过编程变成实用的工具
 
 
 
