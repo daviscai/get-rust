@@ -2,7 +2,7 @@
 从零开始学习 Rust-lang 编程语言，从新手到专家
 
 ## 为什么要学习Rust? 
-- Rust是一门高性能和内存安全的编程语言, 它将会成为未来的主流编程语言, 选择一个最具潜力和实用价值的编程语言
+- Rust是一门高性能和内存安全的编程语言, 它将会成为未来的主流编程语言, 值得选择一个最具潜力和实用价值的编程语言
 - 全能全栈的编程语言, 无论是嵌入式、APP、Web、Server、OS都可以胜任.
 - 最受欢迎的编程语言
 - 2023年美国薪酬前三的编程语言, https://www.devjobsscanner.com/blog/top-10-highest-paid-programming-languages/ 
